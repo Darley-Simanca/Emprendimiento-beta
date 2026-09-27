@@ -230,3 +230,94 @@ html{
     text-transform: uppercase;
     border-radius: 3rem;
 }
+
+/*MAIN CONTENT*/
+
+main.content{
+    background-color: #f9f5f0;    
+}
+
+ /*FEATURES*/
+
+ .container-features{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
+ }
+
+ .card-feature{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    flex: 1;
+ }
+
+ .card-feature i{
+    font-size: 2.7rem;
+    color: var(--primary-color);
+ }
+
+ .feature-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+ }
+
+ .feature-content span{
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--dark-color);
+ }
+
+ .feature-content p{
+    color: #777;
+    font-weight: 500;
+ }
+
+ /*CATEGORIES*/
+
+ .top-categories{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 3rem;
+ }
+
+ .container-categories{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin: 2rem;
+ }
+
+ .card-category{
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    gap: 2rem;
+ }
+
+ .category-Anime{
+    background-image: linear-gradient(#00000000,#00000000), url('../images/anime.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+ .category-DC{
+
+ }
+
+ .category-Marvel{
+
+ }
