@@ -422,10 +422,70 @@ main.content{
 
 .container-img{
     position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-self: center;
+    align-self: center;
 }
 
 .container-img img{
     width: 100%;
+}
+
+.container-img .discount{
+    position: absolute;
+    left: 0;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 2px 1.2rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+}
+
+.card-product:hover .discount{
+    background-color: #000;
+}
+
+.button-group{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    position: absolute;
+    top: 0;
+    right: -3rem;
+    z-index: -1;
+    transition: all .4s ease;
+}
+
+.button-group span{
+    border: 1px solid var(--primary-color);
+    padding: 0.8rem;
+    
+    display: flex;
+    align-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.button-group span:hover{
+    background-color: var(--primary-color);
+}
+
+.button-group span i{
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.button-group span:hover i{
+    color: #fff;
+}
+
+.card-product:hover .button-group{
+    z-index: 0;
+    right: -1rem;
 }
 
 .container-card-product{
@@ -461,11 +521,12 @@ main.content{
 }
 
 .add-card{
+    justify-self: start;
     border: 2px solid var(--primary-color);
     padding: 1rem;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.4 ease;
+    transition: all 0.4s ease;
 
     display: flex;
     justify-content: center;
@@ -486,14 +547,19 @@ main.content{
 }
 
 .container-card-product .price{
+    justify-self: end;
+    align-self: center;
     font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-weight: 600;
 }
 
 .container-card-product .price span{
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
     text-decoration: line-through;
     color: #777;
-    margin: 0.5rem;
+    margin: 0;
 }
