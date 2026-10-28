@@ -719,6 +719,7 @@ main.content{
 /*FOOTER*/
 
 .footer{
+    margin-top: 5rem;
     background-color: var(--primary-color);
 }
 
@@ -878,6 +879,7 @@ main.content{
 .copyright{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: 2rem;
 
     border-top: 1px solid #b794c5;
@@ -886,4 +888,206 @@ main.content{
 .copyright p{
     font-weight: 400;
     font-size: 1.6rem;
+    white-space: nowrap;
+}
+
+.copyright img{
+    width: 120px;
+    height: auto;
+}
+
+/* ==========================================
+   MEDIA QUERIES -- 768px (Tablets y Laptops)
+   ========================================== */
+@media (max-width: 768px) {
+    .menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 2rem;
+        gap: 1.5rem;
+        z-index: 100;
+    }
+
+    
+    html{
+        font-size: 55%;
+    }
+
+    .hero{
+        padding: 2rem;
+    }
+
+    .customer-support,
+    .content-shopping-cart,
+    .menu {
+        display: none;
+    }
+
+    .navbar{
+        padding: 1rem 2rem;
+    }
+
+    .navbar .fa-bars{
+        display: block;
+        color: #fff;
+        font-size: 3rem; 
+    }
+
+    .content-banner{
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 15rem 2rem; /* Reducido para que no ocupe demasiado espacio */
+    }
+
+    .container-features{
+        grid-template-columns: repeat(2, 1fr);
+        padding: 3rem 2rem;
+    }
+
+    .card-feature{
+        padding: 2rem;
+    }
+
+    .heading-1{
+        font-size: 2.4rem;
+    }
+
+    .card-category{
+        height: 12rem;
+    }
+
+    .card-category p{
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1;
+    }
+
+    .card-category span{
+        font-size: 1.4rem;
+    }
+
+    .container-options{
+        align-items: center;
+        flex-wrap: wrap; /* Permite que las opciones se acomoden si no caben */
+    }
+
+    .container-options span{
+        text-align: center;
+        padding: 1rem 2rem;
+    }
+
+    .container-products{
+        grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    }
+
+    .gallery{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container-blogs{
+        grid-template-columns: 1fr;
+        height: auto; /* IMPORTANTE: Dejar en auto para que no se desborde el contenido */
+    }
+
+    .menu-footer{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .copyright{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+    .copyright p {
+        white-space: nowrap;
+        font-size: 1.4rem;
+    }
+
+    .copyright img {
+        width: 130px;
+        height: auto;
+    }
+}
+
+/* ==========================================
+   MEDIA QUERIES -- 468px (Celulares)
+   ========================================== */
+@media (max-width: 468px){
+    
+    html{
+        font-size: 50%; /* Ligera reducción para mejorar proporciones */
+    }
+
+    .content-banner{
+        padding: 12rem 2rem;
+    }
+
+    .heading-1{
+        font-size: 2.2rem;
+    }
+
+    .container-features{
+        grid-template-columns: 1fr; /* Una sola columna en celulares */
+    }
+
+    .card-feature{
+        flex-direction: column;
+        border-radius: 2rem;
+    }
+
+    .feature-content{
+        align-items: center;
+    }
+
+    .feature-content p,
+    .feature-content span{
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .container-options span{
+        font-size: 1.6rem;
+        padding: 1rem;
+    }
+
+    .container-products{
+        grid-template-columns: 1fr; /* Una columna para los productos */
+    }
+
+    .gallery{
+        grid-template-columns: 1fr; /* Una columna para la galería */
+    }
+
+    .blogs{
+        padding: 2rem 1rem;
+    }
+
+    .container-blogs{
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .contact-info ul,
+    .information ul,
+    .my-account ul{
+        display: none; 
+    }
+
+    .menu-footer{
+        grid-template-columns: 1fr; /* Todo el footer a 1 columna */
+        text-align: center;
+    }
+
+    .content p{
+        font-size: 1.6rem;
+    }
 }
