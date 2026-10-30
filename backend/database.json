@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": "Gaara",
+    "categoria": "anime",
+    "precio": 26000,
+    "imagen": "img/gaaraproducts.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Damian Wayne",
+    "categoria": "dc",
+    "precio": 39000,
+    "imagen": "img/damibtw.webp"
+  },
+  {
+    "id": 3,
+    "nombre": "SpiderMan",
+    "categoria": "marvel",
+    "precio": 27000,
+    "imagen": "img/spiderman.jpg"
+  }
+]
