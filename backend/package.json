@@ -1,0 +1,19 @@
+{
+  "name": "merchglow-backend",
+  "version": "1.0.0",
+  "description": "Backend para la tienda MerchGlow",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.22.3",
+    "mongoose": "^8.3.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

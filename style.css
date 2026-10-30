@@ -716,6 +716,76 @@ main.content{
     background-color: var(--dark-color);
 }
 
+/* Formulario de Contacto */
+.contact-section {
+    background: #fff;
+    padding: 4rem 2rem;
+    margin: 4rem 0;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    font-size: 1.4rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+/* Panel de Administración */
+.admin-section {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 4rem 2rem;
+    margin-top: 3rem;
+    border-radius: 1rem;
+}
+
+.admin-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin-form-container input {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+}
+
+.admin-form-container button {
+    padding: 1rem;
+    background: var(--primary-color);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+#admin-dashboard {
+    display: none;
+    background: #333;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
 /*FOOTER*/
 
 .footer{
@@ -895,6 +965,90 @@ main.content{
     width: 120px;
     height: auto;
 }
+
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#chatbot-btn {
+    background: var(--primary-color);
+    color: #333;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chatbot-box {
+    display: none;
+    width: 350px;
+    height: 450px;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    flex-direction: column;
+    overflow: hidden;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    color: #333;
+}
+
+.chatbot-header {
+    background: var(--primary-color);
+    padding: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chatbot-input-area {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.chatbot-input-area input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+.chatbot-input-area button {
+    background: var(--primary-color);
+    color: #333;
+    border: none;
+    padding: 0 1.5rem;
+    margin-left: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 
 /* ==========================================
    MEDIA QUERIES -- 768px (Tablets y Laptops)

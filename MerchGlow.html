@@ -456,6 +456,33 @@
       </div>
     </section>
 
+    <section class="container contact-section" id="contacto">
+      <h2 class="heading-1">Contacto con Soporte</h2>
+      <form class="contact-form" id="form-contacto">
+        <input type="text" placeholder="Tu Nombre" required>
+        <input type="email" placeholder="Tu Correo Electrónico" required>
+        <textarea rows="4" placeholder="¿En qué podemos ayudarte sobre tu pedido?" required></textarea>
+        <button type="submit" class="btn-read-more">Enviar Solicitud</button>
+      </form>
+    </section>
+
+    <section class="container admin-section" id="admin">
+      <h2 class="heading-1" style="color: #fff;">Panel de Administración (Login)</h2>
+      <div class="admin-form-container">
+        <input type="email" id="admin-user" placeholder="Correo (admin@merchglow.com)">
+        <input type="password" id="admin-pass" placeholder="Contraseña (admin123)">
+        <button onclick="loginAdmin()">Ingresar al Panel</button>
+        <div id="admin-dashboard">
+          <h3>¡Bienvenido al Panel de Control! 🚀</h3>
+          <p>Estado de la tienda: <strong>Activa y Conectada</strong></p>
+          <p>Mensajes de clientes recibidos: <span id="msg-count">1</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
   </main>
 
   <footer class="footer">
@@ -524,7 +551,22 @@
     </div>
   </footer>
 
-
+  <div id="chatbot-container">
+    <button id="chatbot-btn" onclick="toggleChat()"><i class="fa-solid fa-robot"></i></button>
+    <div id="chatbot-box">
+      <div class="chatbot-header">
+        <span>Asistente IA MerchGlow</span>
+        <span style="cursor:pointer; font-size: 2rem;" onclick="toggleChat()">&times;</span>
+      </div>
+      <div class="chatbot-messages" id="chat-messages">
+        <div><strong>IA:</strong> ¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte a buscar tu merch de Anime, DC o Marvel hoy?</div>
+      </div>
+      <div class="chatbot-input-area">
+        <input type="text" id="chat-input" placeholder="Escribe tu consulta...">
+        <button onclick="sendChatMessage()">Enviar</button>
+      </div>
+    </div>
+  </div>
 
   <script src="https://kit.fontawesome.com/64d58ef34.js" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/64d58ef34.js" crossorigin="anonymous">
