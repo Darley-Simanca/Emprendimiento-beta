@@ -24,7 +24,7 @@
 
         <div class="container-logo">
           <i class="fa-brands fa-phoenix-squadron"></i>
-          <h1 class="logo"><a href="/">MerchGlow</a></h1>
+          <h1 class="logo"><a href="#">MerchGlow</a></h1>
         </div>
         <div class="container-user">
           <i class="fa-solid fa-user"></i>
@@ -40,18 +40,18 @@
 
     <div class="container-navbar">
       <nav class="navbar container">
-        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
         <ul class="menu">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Anime</a></li>
-          <li><a href="#">Dc</a></li>
-          <li><a href="#">Marvel</a></li>
-          <li><a href="#">Videojuegos</a></li>
-          <li><a href="#">Más</a></li>
-
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Anime</a></li>
+          <li><a href="#productos">Dc</a></li>
+          <li><a href="#productos">Marvel</a></li>
+          <li><a href="#productos">Videojuegos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#admin">Admin</a></li>
         </ul>
-        <form class="search-form">
-          <input type="search" placeholder="Buscar...">
+        <form class="search-form" onsubmit="return false;">
+          <input type="search" placeholder="Buscar productos...">
           <button class="btn-search">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -60,11 +60,12 @@
     </div>
   </header>
 
-  <section class="banner">
+  <!-- Banner con ID para el enlace de Inicio -->
+  <section class="banner" id="inicio">
     <div class="content-banner">
       <p>Merch Increible</p>
       <h2>Tu Coleccion <br> Estilo Unico</h2>
-      <a href="#">Comprar ahora</a>
+      <a href="#productos">Comprar ahora</a>
     </div>
   </section>
 
@@ -103,22 +104,23 @@
     <section class="container top-categories">
       <h1 class="heading-1">Mejores Categorias</h1>
       <div class="container-categories">
-        <div class="card-category category-anime">
+        <div class="card-category category-anime" data-category="anime">
           <p>Anime</p>
           <span>Ver más</span>
         </div>
-        <div class="card-category category-DC">
+        <div class="card-category category-DC" data-category="dc">
           <p>DC</p>
           <span>Ver más</span>
         </div>
-        <div class="card-category category-marvel">
+        <div class="card-category category-marvel" data-category="marvel">
           <p>Marvel</p>
           <span>Ver más</span>
         </div>
       </div>
     </section>
 
-    <section class="container top-products">
+    <!-- Sección de Productos con su ID y data-category en cada tarjeta -->
+    <section class="container top-products" id="productos">
       <h1 class="heading-1">Mejores Productos</h1>
       <div class="container-options">
         <span class="active">Destacados</span>
@@ -126,290 +128,195 @@
         <span>Mejores vendidos</span>
       </div>
       <div class="container-products">
-        <!-- producto 1 -->
-        <div class="card-product">
+        <!-- producto 1: Anime -->
+        <div class="card-product" data-category="anime">
           <div class="container-img">
-            <img src="img/gaaraproducts.jpg" alt="Anime">
+            <img src="img/gaaraproducts.jpg" alt="Anime Gaara">
             <span class="discount">-13%</span>
-            <div class="button-group">
-              <span>
-                <i class="fa-solid fa-eye"></i>
-              </span>
-              <span>
-                <i class="fa-regular fa-heart"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-code-compare"></i>
-              </span>
-            </div>
-          </div>
-          <div class="container-card-product">
-            <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-            </div>
-            <h3>Gaara</h3>
-            <span class="add-card">
-              <i class="fa-solid fa-basket-shopping"></i>
-            </span>
-            <p class="price">$26.000 <span>$30.000</span></p>
-          </div>
-        </div>
-        <!-- producto 2 -->
-        <div class="card-product">
-          <div class="container-img">
-            <img src="img/damibtw.webp" alt="DC">
-            <span class="discount">-22%</span>
-            <div class="button-group">
-              <span>
-                <i class="fa-solid fa-eye"></i>
-              </span>
-              <span>
-                <i class="fa-regular fa-heart"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-code-compare"></i>
-              </span>
-            </div>
-          </div>
-          <div class="container-card-product">
-            <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <h3>Damian Wayne</h3>
-            <span class="add-card">
-              <i class="fa-solid fa-basket-shopping"></i>
-            </span>
-            <p class="price">$39.000 <span>$50.000</span></p>
-          </div>
-        </div>
-        <!-- producto 3 -->
-        <div class="card-product">
-          <div class="container-img">
-            <img src="img/spiderman.jpg" alt="Marvel">
-            <div class="button-group">
-              <span>
-                <i class="fa-solid fa-eye"></i>
-              </span>
-              <span>
-                <i class="fa-regular fa-heart"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-code-compare"></i>
-              </span>
-            </div>
-          </div>
-          <div class="container-card-product">
-            <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-            </div>
-            <h3>SpiderMan</h3>
-            <span class="add-card">
-              <i class="fa-solid fa-basket-shopping"></i>
-            </span>
-            <p class="price">$27.000</p>
-          </div>
-        </div>
-        <!-- producto 4 -->
-        <div class="card-product">
-          <div class="container-img">
-            <img src="img/Will.jpg" alt="Anime">
             <div class="button-group">
               <span><i class="fa-solid fa-eye"></i></span>
               <span><i class="fa-regular fa-heart"></i></span>
               <span><i class="fa-solid fa-code-compare"></i></span>
             </div>
           </div>
-
           <div class="container-card-product">
             <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+            </div>
+            <h3>Gaara</h3>
+            <span class="add-card"><i class="fa-solid fa-basket-shopping"></i></span>
+            <p class="price">$26.000 <span>$30.000</span></p>
+          </div>
+        </div>
+        <!-- producto 2: DC -->
+        <div class="card-product" data-category="dc">
+          <div class="container-img">
+            <img src="img/damibtw.webp" alt="DC Damian Wayne">
+            <span class="discount">-22%</span>
+            <div class="button-group">
+              <span><i class="fa-solid fa-eye"></i></span>
+              <span><i class="fa-regular fa-heart"></i></span>
+              <span><i class="fa-solid fa-code-compare"></i></span>
+            </div>
+          </div>
+          <div class="container-card-product">
+            <div class="star">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <h3>Damian Wayne</h3>
+            <span class="add-card"><i class="fa-solid fa-basket-shopping"></i></span>
+            <p class="price">$39.000 <span>$50.000</span></p>
+          </div>
+        </div>
+        <!-- producto 3: Marvel -->
+        <div class="card-product" data-category="marvel">
+          <div class="container-img">
+            <img src="img/spiderman.jpg" alt="Marvel Spiderman">
+            <div class="button-group">
+              <span><i class="fa-solid fa-eye"></i></span>
+              <span><i class="fa-regular fa-heart"></i></span>
+              <span><i class="fa-solid fa-code-compare"></i></span>
+            </div>
+          </div>
+          <div class="container-card-product">
+            <div class="star">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            </div>
+            <h3>SpiderMan</h3>
+            <span class="add-card"><i class="fa-solid fa-basket-shopping"></i></span>
+            <p class="price">$27.000</p>
+          </div>
+        </div>
+        <!-- producto 4: Anime -->
+        <div class="card-product" data-category="anime">
+          <div class="container-img">
+            <img src="img/Will.jpg" alt="Anime William Moriarty">
+            <div class="button-group">
+              <span><i class="fa-solid fa-eye"></i></span>
+              <span><i class="fa-regular fa-heart"></i></span>
+              <span><i class="fa-solid fa-code-compare"></i></span>
+            </div>
+          </div>
+          <div class="container-card-product">
+            <div class="star">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
             </div>
             <h3>William Moriarty</h3>
-            <span class="add-card">
-              <i class="fa-solid fa-basket-shopping"></i>
-            </span>
+            <span class="add-card"><i class="fa-solid fa-basket-shopping"></i></span>
             <p class="price">$30.000</p>
           </div>
         </div>
+      </div>
     </section>
 
     <section class="gallery">
-      <div class="gallery-img-1"><img src="img/gallery1.jpg" alt="Gallery Img" class="gallery-img-1"></div>
-      <div class="gallery-img-2"><img src="img/gallery2.jpg" alt="Gallery Img" class="gallery-img-2"></div>
-      <div class="gallery-img-3"><img src="img/gallery3.jpg" alt="Gallery Img" class="gallery-img-3"></div>
-      <div class="gallery-img-4"><img src="img/gallery4.jpg" alt="Gallery Img" class="gallery-img-4"></div>
-      <div class="gallery-img-5"><img src="img/gallery5.jpg" alt="Gallery Img" class="gallery-img-5"></div>
+      <div class="gallery-img-1"><img src="img/gallery1.jpg" alt="Gallery Img"></div>
+      <div class="gallery-img-2"><img src="img/gallery2.jpg" alt="Gallery Img"></div>
+      <div class="gallery-img-3"><img src="img/gallery3.jpg" alt="Gallery Img"></div>
+      <div class="gallery-img-4"><img src="img/gallery4.jpg" alt="Gallery Img"></div>
+      <div class="gallery-img-5"><img src="img/gallery5.jpg" alt="Gallery Img"></div>
     </section>
 
     <section class="container specials">
       <h1 class="heading-1">Especiales</h1>
       <div class="container-products">
         <!-- especial 1 -->
-        <div class="card-product">
+        <div class="card-product" data-category="anime">
           <div class="container-img">
-            <img src="img/gaaraproducts.jpg" alt="Anime">
+            <img src="img/gaaraproducts.jpg" alt="Anime Gaara">
             <span class="discount">-13%</span>
             <div class="button-group">
-              <span>
-                <i class="fa-solid fa-eye"></i>
-              </span>
-              <span>
-                <i class="fa-regular fa-heart"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-code-compare"></i>
-              </span>
+              <span><i class="fa-solid fa-eye"></i></span>
+              <span><i class="fa-regular fa-heart"></i></span>
+              <span><i class="fa-solid fa-code-compare"></i></span>
             </div>
           </div>
           <div class="container-card-product">
             <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
             </div>
             <h3>Gaara</h3>
-            <span class="add-card">
-              <i class="fa-solid fa-basket-shopping"></i>
-            </span>
+            <span class="add-card"><i class="fa-solid fa-basket-shopping"></i></span>
             <p class="price">$26.000 <span>$30.000</span></p>
           </div>
         </div>
         <!-- especial 2 -->
-        <div class="card-product">
+        <div class="card-product" data-category="dc">
           <div class="container-img">
-            <img src="img/damibtw.webp" alt="DC">
+            <img src="img/damibtw.webp" alt="DC Damian Wayne">
             <span class="discount">-22%</span>
             <div class="button-group">
-              <span>
-                <i class="fa-solid fa-eye"></i>
-              </span>
-              <span>
-                <i class="fa-regular fa-heart"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-code-compare"></i>
-              </span>
+              <span><i class="fa-solid fa-eye"></i></span>
+              <span><i class="fa-regular fa-heart"></i></span>
+              <span><i class="fa-solid fa-code-compare"></i></span>
             </div>
           </div>
           <div class="container-card-product">
             <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
             <h3>Damian Wayne</h3>
-            <span class="add-card">
-              <i class="fa-solid fa-basket-shopping"></i>
-            </span>
+            <span class="add-card"><i class="fa-solid fa-basket-shopping"></i></span>
             <p class="price">$39.000 <span>$50.000</span></p>
           </div>
         </div>
         <!-- especial 3 -->
-        <div class="card-product">
+        <div class="card-product" data-category="dc">
           <div class="container-img">
-            <img src="img/jasonn.avif" alt="DC">
+            <img src="img/jasonn.avif" alt="DC Jason Todd">
             <span class="discount">-12%</span>
             <div class="button-group">
-              <span>
-                <i class="fa-solid fa-eye"></i>
-              </span>
-              <span>
-                <i class="fa-regular fa-heart"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-code-compare"></i>
-              </span>
+              <span><i class="fa-solid fa-eye"></i></span>
+              <span><i class="fa-regular fa-heart"></i></span>
+              <span><i class="fa-solid fa-code-compare"></i></span>
             </div>
           </div>
           <div class="container-card-product">
             <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
             <h3>Jason Todd</h3>
-            <span class="add-card">
-              <i class="fa-solid fa-basket-shopping"></i>
-            </span>
+            <span class="add-card"><i class="fa-solid fa-basket-shopping"></i></span>
             <p class="price">$52.800 <span>$60.000</span></p>
           </div>
         </div>
         <!-- especial 4 -->
-        <div class="card-product">
+        <div class="card-product" data-category="marvel">
           <div class="container-img">
-            <img src="img/iro man.png" alt="Marvel">
+            <img src="img/iro man.png" alt="Marvel Iron Man">
             <div class="button-group">
-              <span>
-                <i class="fa-solid fa-eye"></i>
-              </span>
-              <span>
-                <i class="fa-regular fa-heart"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-code-compare"></i>
-              </span>
+              <span><i class="fa-solid fa-eye"></i></span>
+              <span><i class="fa-regular fa-heart"></i></span>
+              <span><i class="fa-solid fa-code-compare"></i></span>
             </div>
           </div>
           <div class="container-card-product">
             <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
             </div>
             <h3>Iron Man</h3>
-            <span class="add-card">
-              <i class="fa-solid fa-basket-shopping"></i>
-            </span>
+            <span class="add-card"><i class="fa-solid fa-basket-shopping"></i></span>
             <p class="price">$56.000</p>
           </div>
         </div>
+      </div>
     </section>
 
     <section class="container blogs">
       <h1 class="heading-1">Ultimos Blogs</h1>
-
       <div class="container-blog">
         <div class="card-blog">
           <div class="container-img">
             <img src="img/limpieza.webp" alt="Imagen Blog 1">
             <div class="button-group-blog">
-              <span>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-link"></i>
-              </span>
+              <span><i class="fa-solid fa-magnifying-glass"></i></span>
+              <span><i class="fa-solid fa-link"></i></span>
             </div>
           </div>
           <div class="content-blog">
             <h3>¿Como limpiar y proteger tus figuras coleccionables del polvo y el sol?</h3>
             <span>25 Septiembre 2026</span>
-            <p>Descubre los mejores tips para limpiar tus figuras de PVC y resina sin dañar la pintura ni el acabado.
-            </p>
+            <p>Descubre los mejores tips para limpiar tus figuras de PVC y resina sin dañar la pintura ni el acabado.</p>
             <div class="btn-read-more">Leer más</div>
           </div>
         </div>
@@ -417,19 +324,14 @@
           <div class="container-img">
             <img src="img/dc y marvel.webp" alt="Imagen Blog 2">
             <div class="button-group-blog">
-              <span>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-link"></i>
-              </span>
+              <span><i class="fa-solid fa-magnifying-glass"></i></span>
+              <span><i class="fa-solid fa-link"></i></span>
             </div>
           </div>
           <div class="content-blog">
             <h3>Top 5 figuras más esperadas de Marvel y DC para este año</h3>
             <span>27 Septiembre 2026</span>
-            <p>Repasamos los próximos lanzamientos de marcas como Bandai y Hot Toys que no pueden faltar
-              en tu repisa.</p>
+            <p>Repasamos los próximos lanzamientos de marcas como Bandai y Hot Toys que no pueden faltar en tu repisa.</p>
             <div class="btn-read-more">Leer más</div>
           </div>
         </div>
@@ -437,28 +339,24 @@
           <div class="container-img">
             <img src="img/originalvsfake.jpg" alt="Imagen Blog 3">
             <div class="button-group-blog">
-              <span>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </span>
-              <span>
-                <i class="fa-solid fa-link"></i>
-              </span>
+              <span><i class="fa-solid fa-magnifying-glass"></i></span>
+              <span><i class="fa-solid fa-link"></i></span>
             </div>
           </div>
           <div class="content-blog">
             <h3>Original vs. Copia: Cómo detectar una figura bootleg fácilmente</h3>
             <span>30 Septiembre 2026</span>
-            <p>Aprende a identificar los sellos de autenticidad, acabados de pintura y detalles en las cajas antes de
-              comprar.</p>
+            <p>Aprende a identificar los sellos de autenticidad, acabados de pintura y detalles en las cajas antes de comprar.</p>
             <div class="btn-read-more">Leer más</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Sección Contacto -->
     <section class="container contact-section" id="contacto">
       <h2 class="heading-1">Contacto con Soporte</h2>
-      <form class="contact-form" id="form-contacto">
+      <form class="contact-form" id="form-contacto" onsubmit="event.preventDefault(); alert('¡Mensaje enviado correctamente!');">
         <input type="text" placeholder="Tu Nombre" required>
         <input type="email" placeholder="Tu Correo Electrónico" required>
         <textarea rows="4" placeholder="¿En qué podemos ayudarte sobre tu pedido?" required></textarea>
@@ -466,23 +364,20 @@
       </form>
     </section>
 
+    <!-- Panel de Administración -->
     <section class="container admin-section" id="admin">
       <h2 class="heading-1" style="color: #fff;">Panel de Administración (Login)</h2>
       <div class="admin-form-container">
         <input type="email" id="admin-user" placeholder="Correo (admin@merchglow.com)">
         <input type="password" id="admin-pass" placeholder="Contraseña (admin123)">
         <button onclick="loginAdmin()">Ingresar al Panel</button>
-        <div id="admin-dashboard">
+        <div id="admin-dashboard" style="display:none; margin-top: 1rem; background: #333; padding: 1.5rem; border-radius: 0.5rem;">
           <h3>¡Bienvenido al Panel de Control! 🚀</h3>
           <p>Estado de la tienda: <strong>Activa y Conectada</strong></p>
           <p>Mensajes de clientes recibidos: <span id="msg-count">1</span></p>
         </div>
       </div>
     </section>
-  </main>
-
-
-
   </main>
 
   <footer class="footer">
@@ -519,7 +414,6 @@
 
         <div class="my-account">
           <p class="title-footer">Mi Cuenta</p>
-
           <ul>
             <li><a href="#">Mi Cuenta</a></li>
             <li><a href="#">Historial de ordenes</a></li>
@@ -531,11 +425,8 @@
 
         <div class="newletter">
           <p class="title-footer">Boletin Informativo</p>
-
           <div class="content">
-            <p>Suscribete a nuestros boletines ahora y mantente al
-              dia con nuevas colecciones y ofertas excusivas.
-            </p>
+            <p>Suscribete a nuestros boletines ahora y mantente al dia con nuevas colecciones y ofertas exclusivas.</p>
             <input type="email" placeholder="Ingresa tu correo aqui...">
             <button>Suscribete</button>
           </div>
@@ -543,14 +434,13 @@
       </div>
 
       <div class="copyright">
-        <p>
-          Desarrollado por MerchGlow &copy; 2026
-        </p>
+        <p>Desarrollado por MerchGlow &copy; 2026</p>
         <img src="img/METODOS.png" alt="Pagos">
       </div>
     </div>
   </footer>
 
+  <!-- Chatbot de IA -->
   <div id="chatbot-container">
     <button id="chatbot-btn" onclick="toggleChat()"><i class="fa-solid fa-robot"></i></button>
     <div id="chatbot-box">
@@ -568,9 +458,6 @@
     </div>
   </div>
 
-  <script src="https://kit.fontawesome.com/64d58ef34.js" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/64d58ef34.js" crossorigin="anonymous">
-  </script> 
   <script src="script.js"></script>
 </body>
 
