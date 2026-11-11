@@ -104,15 +104,15 @@
     <section class="container top-categories">
       <h1 class="heading-1">Mejores Categorias</h1>
       <div class="container-categories">
-          <a href="categoria.html?cat=anime" class="card-category category-anime" data-category="anime">
+          <a href="categorias/anime.html" class="card-category category-anime" data-category="anime">
           <p>Anime</p>
           <span>Ver más</span>
           </a>
-        <a href="categoria.html?cat=dc" class="card-category category-DC" data-category="dc">
+        <a href="MerchGlow.html#dc" class="card-category category-DC" data-category="dc">
           <p>DC</p>
           <span>Ver más</span>
         </a>
-        <a href="marvel.html?cat=marvel" class="card-category category-marvel" data-category="marvel">
+        <a href="MerchGlow.html#marvel" class="card-category category-marvel" data-category="marvel">
           <p>Marvel</p>
           <span>Ver más</span>
         </a>
@@ -459,6 +459,54 @@
   </div>
 
   <script src="script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Lee los parámetros de la URL (ej: ?cat=dc)
+    const params = new URLSearchParams(window.location.search);
+    const categoria = params.get('cat');
+
+    // Define la ruta del backend: si hay categoría, filtra; si no, trae todos
+    let urlPeticion = 'http://localhost:5000/api/productos';
+    if (categoria) {
+      urlPeticion = `http://localhost:5000/api/productos/categoria/${categoria}`;
+    }
+
+    // Pide los datos al servidor de Node.js
+    fetch(urlPeticion)
+      .then(res => res.json())
+      .then(productos => {
+        // Busca el contenedor donde se muestran las tarjetas de productos
+        const contenedor = document.getElementById('contenedor-productos');
+        if (!contenedor) return;
+        
+        contenedor.innerHTML = ''; // Limpia los productos estáticos de ejemplo
+
+        if (productos.length === 0) {
+          contenedor.innerHTML = '<p style="padding: 20px;">No hay productos disponibles en esta categoría.</p>';
+          return;
+        }
+
+        // Rellena el contenedor con los productos de MongoDB usando tus clases originales
+        productos.forEach(prod => {
+          const card = document.createElement('div');
+          card.className = 'card-product'; // Mantiene tu diseño CSS original
+          card.innerHTML = `
+            <div class="container-img">
+              <img src="${prod.imagen || 'img/default.jpg'}" alt="${prod.nombre}">
+            </div>
+            <div class="content-card-product">
+              <h3>${prod.nombre}</h3>
+              <p class="description">${prod.descripcion || ''}</p>
+              <p class="price">$${prod.precio}</p>
+              <button class="btn-add-cart" onclick="alert('¡${prod.nombre} agregado al carrito!')">Añadir al carrito</button>
+            </div>
+          `;
+          contenedor.appendChild(card);
+        });
+      })
+      .catch(err => console.error("Error al conectar con el servidor:", err));
+  });
+</script>
 </body>
 
 </html>

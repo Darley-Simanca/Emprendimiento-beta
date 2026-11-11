@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MerchGlow - Anime</title>
+    <!-- ESTILOS: IDÉNTICOS A LA PÁGINA PRINCIPAL -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fcf4eb;
+            color: #333333;
+            min-height: 100vh;
+        }
+
+        .top-header {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            border-bottom: 2px solid #eaeaea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: #b57eed;
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(181, 126, 237, 0.4);
+        }
+
+        .btn-cart {
+            background-color: #daa4fc;
+            color: #14141d;
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 0 10px rgba(218, 164, 252, 0.5);
+        }
+
+        .category-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            background: linear-gradient(180deg, #ffffff 0%, #fcf4eb 100%);
+        }
+
+        .category-header span {
+            color: #777777;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .category-header h2 {
+            font-size: 3.5rem;
+            letter-spacing: 4px;
+            margin-top: 5px;
+            text-transform: uppercase;
+            color: #8b3dff;
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(139, 61, 255, 0.4);
+        }
+
+        .subcategories-bar {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 2rem 5%;
+            background-color: #ffffff;
+            white-space: nowrap;
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .sub-card {
+            min-width: 130px;
+            height: 90px;
+            background: #f9f5f0;
+            border-radius: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            text-decoration: none;
+            color: #444444;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: 1px solid #e2e2e2;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .sub-card:hover {
+            border-color: #8b3dff;
+            color: #8b3dff;
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(139, 61, 255, 0.2);
+        }
+
+        .container {
+            max-width: 120rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-subtitle {
+            margin: 3rem 0 2rem;
+            font-size: 1.5rem;
+            color: #555555;
+            font-weight: 600;
+            border-left: 4px solid #8b3dff;
+            padding-left: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        /* DISEÑO EXACTO DE LAS TARJETAS DE LA PÁGINA PRINCIPAL */
+        .container-products {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(20rem, 1fr));
+            gap: 3rem;
+            padding-bottom: 5rem;
+        }
+
+        .card-product {
+            background-color: #fff;
+            padding: 2rem 3rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+        }
+
+        .card-product:hover {
+            box-shadow: 0 5px 15px rgba(139, 61, 255, 0.2);
+            border-color: #8b3dff;
+        }
+
+        .container-img {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .container-card-product {
+            display: grid;
+            justify-items: center;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(4, min-content);
+            row-gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .star {
+            grid-row: 1/2;
+            grid-column: 1/-1;
+            font-size: 1.3rem;
+            color: #8b3dff;
+        }
+
+        .container-card-product h3 {
+            grid-row: 2/3;
+            grid-column: 1/-1;
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .add-card {
+            justify-self: start;
+            border: 2px solid #8b3dff;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .add-card:hover {
+            background-color: #8b3dff;
+        }
+
+        .add-card i {
+            font-size: 1.5rem;
+            color: #8b3dff;
+        }
+
+        .add-card:hover i {
+            color: #fff;
+        }
+
+        .container-card-product .price {
+            justify-self: end;
+            align-self: center;
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: #8b3dff;
+        }
+
+        .container-card-product .price span {
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-decoration: line-through;
+            color: #777;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container-products {
+                grid-template-columns: repeat(2, minmax(15rem, 1fr));
+                gap: 1.5rem;
+            }
+        }
+    </style>
+    <!-- FontAwesome para los iconos de estrellas y carrito -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header superior -->
+    <header class="top-header">
+        <div class="logo">
+            <h1><a href="../MerchGlow.html" class="logo-link">MERCHGLOW</a></h1>
+        </div>
+        <div>
+            <a href="../MerchGlow.html" class="btn-cart"><i class="fa-solid fa-arrow-left"></i> Volver al Inicio</a>
+        </div>
+    </header>
+
+    <!-- Encabezado de Categoría -->
+    <div class="category-header">
+        <span>( CATEGORÍA )</span>
+        <h2>ANIME</h2>
+    </div>
+
+    <!-- Carrusel de Subcategorías -->
+    <div class="subcategories-bar">
+        <a href="javascript:void(0);" class="sub-card" data-sub="artistas">Artistas</a>
+        <a href="javascript:void(0);" class="sub-card" data-sub="banana-fish">Banana Fish</a>
+        <a href="javascript:void(0);" class="sub-card" data-sub="beastars">Beastars</a>
+        <a href="javascript:void(0);" class="sub-card" data-sub="berserk">Berserk</a>
+        <a href="javascript:void(0);" class="sub-card" data-sub="bleach">Bleach</a>
+        <a href="javascript:void(0);" class="sub-card" data-sub="blue-lock">Blue Lock</a>
+        <a href="javascript:void(0);" class="sub-card" data-sub="boku-no-hero">Boku no Hero</a>
+    </div>
+
+    <!-- Sección de Productos -->
+    <main class="container">
+        <h3 class="section-subtitle">Productos Disponibles</h3>
+        
+        <div id="contenedor-productos-categoria" class="container-products">
+            <!-- Los productos cargados desde MongoDB se inyectarán aquí con la estructura exacta -->
+        </div>
+    </main>
+
+    <!-- Script de conexión al Backend que adapta las tarjetas al formato principal -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const categoria = "anime";
+            const contenedor = document.getElementById("contenedor-productos-categoria");
+
+            function cargarProductos(subcategoria = null) {
+                let url = `http://localhost:5000/api/productos/categoria/${categoria}`;
+                if (subcategoria) {
+                    url += `?sub=${subcategoria}`;
+                }
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(productos => {
+                        if (!contenedor) return;
+                        contenedor.innerHTML = "";
+
+                        if (!productos || productos.length === 0) {
+                            contenedor.innerHTML = '<p style="color: #777; padding: 20px; font-size: 1.4rem;">No hay productos disponibles en esta categoría.</p>';
+                            return;
+                        }
+
+                        productos.forEach(prod => {
+                            const card = document.createElement("div");
+                            card.className = "card-product";
+                            card.innerHTML = `
+                                <div class="container-img">
+                                    <img src="${prod.imagen ? '../' + prod.imagen : '../img/default.jpg'}" alt="${prod.nombre}">
+                                </div>
+                                <div class="container-card-product">
+                                    <div class="star">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <h3>${prod.nombre}</h3>
+                                    <button class="add-card" onclick="alert('¡${prod.nombre} añadido al carrito!')">
+                                        <i class="fa-solid fa-bag-shopping"></i>
+                                    </button>
+                                    <p class="price">$${prod.precio} <span>$${Math.round(prod.precio * 1.2)}</span></p>
+                                </div>
+                            `;
+                            contenedor.appendChild(card);
+                        });
+                    })
+                    .catch(err => {
+                        console.error("Error al conectar con el servidor:", err);
+                        if (contenedor) {
+                            contenedor.innerHTML = '<p style="color: #ff5555; padding: 20px; font-size: 1.4rem;">Error al conectar con la base de datos.</p>';
+                        }
+                    });
+            }
+
+            cargarProductos();
+
+            const subCards = document.querySelectorAll(".sub-card");
+            subCards.forEach(card => {
+                card.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const sub = card.getAttribute("data-sub");
+                    cargarProductos(sub);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
