@@ -129,9 +129,9 @@
       </div>
       <div class="container-products">
         <!-- producto 1: Anime -->
-        <div class="card-product" data-category="anime">
+        <div class="card-product" data-filter="vendidos" data-category="anime">
           <div class="container-img">
-            <img src="img/gaaraproducts.jpg" alt="Anime Gaara">
+            <img src="img/gaaraproducts.jpg" alt="anime Gaara">
             <span class="discount">-13%</span>
             <div class="button-group">
               <span><i class="fa-solid fa-eye"></i></span>
@@ -149,7 +149,7 @@
           </div>
         </div>
         <!-- producto 2: DC -->
-        <div class="card-product" data-category="dc">
+        <div class="card-product" data-filter="destacados" data-category="dc">
           <div class="container-img">
             <img src="img/damibtw.webp" alt="DC Damian Wayne">
             <span class="discount">-22%</span>
@@ -169,9 +169,9 @@
           </div>
         </div>
         <!-- producto 3: Marvel -->
-        <div class="card-product" data-category="marvel">
+        <div class="card-product" data-filter="vendidos" data-category="marvel">
           <div class="container-img">
-            <img src="img/spiderman.jpg" alt="Marvel Spiderman">
+            <img src="img/spiderman.jpg" alt="Marvel SpiderMan">
             <div class="button-group">
               <span><i class="fa-solid fa-eye"></i></span>
               <span><i class="fa-regular fa-heart"></i></span>
@@ -188,7 +188,7 @@
           </div>
         </div>
         <!-- producto 4: Anime -->
-        <div class="card-product" data-category="anime">
+        <div class="card-product" data-filters" data-category="anime">
           <div class="container-img">
             <img src="img/Will.jpg" alt="Anime William Moriarty">
             <div class="button-group">
@@ -458,7 +458,7 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+ 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // Lee los parámetros de la URL (ej: ?cat=dc)
@@ -506,7 +506,8 @@
       })
       .catch(err => console.error("Error al conectar con el servidor:", err));
   });
-</script>
+</script> 
+<script src="script.js"></script>
 </body>
 
 </html>
