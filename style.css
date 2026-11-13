@@ -327,14 +327,14 @@ main.content{
 }
 
  .category-DC{
-    background-image: linear-gradient(#00000080,#00000080), url('img/dc.jpg');
+    background-image: linear-gradient(#00000080,#00000080), url('../img/dc.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
  }
 
  .category-marvel{
-    background-image: linear-gradient(#00000080,#00000080), url('img/marvel.jpg');
+    background-image: linear-gradient(#00000080,#00000080), url('../img/marvel.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;    
