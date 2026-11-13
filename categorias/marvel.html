@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MerchGlow - Marvel</title>
+    <!-- ESTILOS: IDÉNTICOS A LA REFERENCIA DE PERSONAJES -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fcf4eb;
+            color: #333333;
+            min-height: 100vh;
+        }
+
+        .top-header {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            border-bottom: 2px solid #eaeaea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: #b57eed;
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(181, 126, 237, 0.4);
+        }
+
+        .btn-cart-top {
+            background-color: #daa4fc;
+            color: #14141d;
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 0 10px rgba(218, 164, 252, 0.5);
+        }
+
+        .category-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            background: linear-gradient(180deg, #ffffff 0%, #fcf4eb 100%);
+        }
+
+        .category-header span {
+            color: #777777;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .category-header h2 {
+            font-size: 3.5rem;
+            letter-spacing: 4px;
+            margin-top: 5px;
+            text-transform: uppercase;
+            color: #8b3dff;
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(139, 61, 255, 0.4);
+        }
+
+        .subcategories-bar {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 2rem 5%;
+            background-color: #ffffff;
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            white-space: nowrap;
+        }
+
+        .sub-card {
+            min-width: 130px;
+            height: 90px;
+            background: #f9f5f0;
+            border-radius: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            text-decoration: none;
+            color: #444444;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: 1px solid #e2e2e2;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .sub-card:hover {
+            border-color: #8b3dff;
+            color: #8b3dff;
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(139, 61, 255, 0.2);
+        }
+
+        .container {
+            max-width: 120rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-subtitle {
+            margin: 3rem 0 2rem;
+            font-size: 1.5rem;
+            color: #555555;
+            font-weight: 600;
+            border-left: 4px solid #8b3dff;
+            padding-left: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        /* DISEÑO DE LA TARJETA */
+        .container-products {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(20rem, 1fr));
+            gap: 3rem;
+            padding-bottom: 5rem;
+        }
+
+        .card-product {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 0.8rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card-product:hover {
+            box-shadow: 0 8px 20px rgba(139, 61, 255, 0.15);
+            border-color: #d1b3ff;
+        }
+
+        .container-img {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        .container-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        /* ETIQUETA DE DESCUENTO */
+        .discount {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #b366ff;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.3rem 0.7rem;
+            border-radius: 1rem;
+            z-index: 2;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-product:hover .discount {
+            background-color: #000000;
+        }
+
+        /* ICONOS FLOTANTES LATERALES */
+        .button-group {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .container-img:hover .button-group {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .button-group span {
+            background-color: #ffffff;
+            border: 1.5px solid #d1b3ff;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .button-group span i {
+            color: #b366ff;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+        }
+
+        .button-group span:hover {
+            background-color: #b366ff;
+        }
+
+        .button-group span:hover i {
+            color: #ffffff;
+        }
+
+        /* CLASE PARA CORAZÓN ACTIVO (ROJO) */
+        .button-group span.active-heart i {
+            color: #ff3333 !important;
+        }
+        .button-group span.active-heart {
+            border-color: #ff3333 !important;
+        }
+
+        /* CONTENIDO DE LA TARJETA */
+        .container-card-product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
+
+        .star {
+            font-size: 1.1rem;
+            color: #c488ff;
+        }
+
+        .container-card-product h3 {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            text-align: center;
+            margin: 0.2rem 0;
+        }
+
+        .card-bottom-row {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.8rem;
+            padding-top: 0.5rem;
+        }
+
+        .add-card {
+            background: transparent;
+            border: 2px solid #d1b3ff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .add-card:hover {
+            background-color: #b366ff;
+            border-color: #b366ff;
+        }
+
+        .add-card i {
+            font-size: 1.2rem;
+            color: #b366ff;
+        }
+
+        .add-card:hover i {
+            color: #fff;
+        }
+
+        .container-card-product .price-box {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .container-card-product .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #8b3dff;
+        }
+
+        .container-card-product .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            text-decoration: line-through;
+            color: #999999;
+        }
+
+        @media (max-width: 768px) {
+            .container-products {
+                grid-template-columns: repeat(2, minmax(15rem, 1fr));
+                gap: 1.5rem;
+            }
+        }
+    </style>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header superior -->
+    <header class="top-header">
+        <div class="logo">
+            <h1><a href="../MerchGlow.html" class="logo-link">MERCHGLOW</a></h1>
+        </div>
+        <div>
+            <a href="../MerchGlow.html" class="btn-cart-top"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        </div>
+    </header>
+
+    <!-- Encabezado de Categoría -->
+    <div class="category-header">
+        <span>( CATEGORÍA )</span>
+        <h2>MARVEL</h2>
+    </div>
+
+    <!-- Carrusel de Subcategorías -->
+<div class="subcategories-bar">
+    <a href="javascript:void(0);" class="sub-card" data-sub="">Todos</a>
+    <a href="javascript:void(0);" class="sub-card" data-sub="spider-man">Spider-Man</a>
+    <a href="javascript:void(0);" class="sub-card" data-sub="avengers">Avengers</a>
+    <a href="javascript:void(0);" class="sub-card" data-sub="deadpool-wolverine">Deadpool & Wolverine</a>
+    <a href="javascript:void(0);" class="sub-card" data-sub="x-men">X-Men</a>
+    <a href="javascript:void(0);" class="sub-card" data-sub="guardians">Guardians of the Galaxy</a>
+    <a href="javascript:void(0);" class="sub-card" data-sub="villanos">Villanos & Antiheroes</a>
+</div>
+
+    <!-- Sección de Productos -->
+    <main class="container">
+        <h3 class="section-subtitle">Productos Disponibles</h3>
+        
+        <div id="contenedor-productos-categoria" class="container-products">
+            <!-- Los productos se inyectarán aquí automáticamente mediante tu archivo anime.js -->
+        </div>
+    </main>
+
+    <!-- Vinculación del archivo JavaScript externo -->
+    <script src="marvel.js"></script>
+</body>
+</html>

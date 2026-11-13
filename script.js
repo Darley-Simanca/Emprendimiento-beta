@@ -5,6 +5,101 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuIcon && menu) {
         menuIcon.addEventListener('click', () => menu.classList.toggle('active'));
     }
+let chatWindow = document.getElementById('chatBotWindow');
+    
+    // Si la ventana no existe en el HTML, la creamos con estructura interactiva
+    if (!chatWindow) {
+        const chatHTML = `
+            <div id="chatBotWindow" style="position: fixed; bottom: 80px; right: 20px; width: 320px; height: 420px; background: #fff; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.2); display: none; flex-direction: column; z-index: 9999; overflow: hidden; border: 1px solid #d1b3ff; font-family: sans-serif;">
+                <div style="background: #8b3dff; color: #fff; padding: 1rem; display: flex; justify-content: space-between; align-items: center; font-weight: bold;">
+                    <span>Asistente MerchGlow 🤖</span>
+                    <span id="closeChatBtn" style="cursor: pointer; font-size: 1.5rem; line-height: 1;">×</span>
+                </div>
+                <div id="chatMessagesContainer" style="flex: 1; padding: 1rem; overflow-y: auto; background: #f9f6ff; display: flex; flex-direction: column; gap: 0.8rem;">
+                    <div style="background: #e6ccff; padding: 0.6rem 1rem; border-radius: 0.8rem; max-width: 85%; align-self: flex-start; font-size: 0.9rem; color: #333;">
+                        ¡Hola! 💜 ¿Qué figura coleccionable o producto de Marvel o DC buscas hoy en MerchGlow?
+                    </div>
+                </div>
+                <div style="padding: 0.8rem; display: flex; gap: 0.5rem; border-top: 1px solid #eee; background: #fff;">
+                    <input type="text" id="chatInputText" placeholder="Escribe tu mensaje..." style="flex: 1; padding: 0.6rem; border: 1px solid #ccc; border-radius: 1rem; outline: none; font-size: 0.9rem;">
+                    <button id="chatSendBtn" style="background: #8b3dff; color: #fff; border: none; padding: 0.6rem 1rem; border-radius: 1rem; cursor: pointer; font-weight: bold;">Enviar</button>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', chatHTML);
+        chatWindow = document.getElementById('chatBotWindow');
+    }
+
+    // Vincular apertura con el icono flotante (el icono de robot que tienes en la esquina)
+    const existingBotIcon = document.querySelector('.fa-robot') ? document.querySelector('.fa-robot').closest('div') : null;
+
+    if (existingBotIcon) {
+        existingBotIcon.style.cursor = 'pointer';
+        existingBotIcon.addEventListener('click', () => {
+            const isVisible = chatWindow.style.display === 'flex';
+            chatWindow.style.display = isVisible ? 'none' : 'flex';
+        });
+    }
+
+    // Botón para cerrar la ventana dentro del chat
+    const closeChatBtn = document.getElementById('closeChatBtn');
+    if (closeChatBtn) {
+        closeChatBtn.addEventListener('click', () => {
+            chatWindow.style.display = 'none';
+        });
+    }
+
+    // Lógica para enviar mensajes y responder
+    const sendBtn = document.getElementById('chatSendBtn');
+    const inputTxt = document.getElementById('chatInputText');
+    const messagesContainer = document.getElementById('chatMessagesContainer');
+
+    function enviarMensaje() {
+        const texto = inputTxt.value.trim();
+        if (texto === '') return;
+
+        // 1. Mostrar mensaje del usuario
+        const userMsg = document.createElement('div');
+        userMsg.style.cssText = 'background: #8b3dff; color: #fff; padding: 0.6rem 1rem; border-radius: 0.8rem; max-width: 85%; align-self: flex-end; font-size: 0.9rem; word-break: break-word;';
+        userMsg.textContent = texto;
+        messagesContainer.appendChild(userMsg);
+
+        inputTxt.value = '';
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // 2. Respuesta automática inteligente del bot después de medio segundo
+        setTimeout(() => {
+            const botMsg = document.createElement('div');
+            botMsg.style.cssText = 'background: #e6ccff; color: #333; padding: 0.6rem 1rem; border-radius: 0.8rem; max-width: 85%; align-self: flex-start; font-size: 0.9rem; word-break: break-word;';
+            
+            let respuesta = "¡Excelente elección! Tenemos stock disponible de ese coleccionable en MerchGlow.";
+            const t = texto.toLowerCase();
+            if (t.includes('hola') || t.includes('buenos')) {
+                respuesta = "¡Hola! Bienvenido a MerchGlow. ¿Te puedo ayudar a encontrar alguna figura de anime, Marvel o DC?";
+            } else if (t.includes('precio') || t.includes('cuanto') || t.includes('cuesta')) {
+                respuesta = "Nuestros precios varían entre $25.000 y $55.000 COP con excelentes descuentos aplicados.";
+            } else if (t.includes('marvel') || t.includes('spider') || t.includes('avengers')) {
+                respuesta = "¡Revisa nuestra sección de Marvel! Tenemos figuras de Spider-Man, Avengers y Deadpool con envío rápido.";
+            } else if (t.includes('dc') || t.includes('batman') || t.includes('superman')) {
+                respuesta = "En la categoría DC contamos con Damian Wayne, Batman y Superman. ¡Echa un vistazo al catálogo!";
+            }
+
+            botMsg.textContent = respuesta;
+            messagesContainer.appendChild(botMsg);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 500);
+    }
+
+    if (sendBtn && inputTxt) {
+        sendBtn.addEventListener('click', enviarMensaje);
+        inputTxt.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                enviarMensaje();
+            }
+        });
+    }
+
+
 
     // 2. Seleccionar todas las tarjetas de productos de tu HTML
     const productCards = document.querySelectorAll('.card-product');
@@ -103,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. Pestañas superiores interactivas con filtrado real
+    // 3. Pestañas superiores interactivas con simulación de filtrado dinámico
     const filterTabs = document.querySelectorAll('.container-options span, .category-tabs span, .tabs button, .container-options a');
     
     filterTabs.forEach(tab => {
@@ -124,27 +219,27 @@ document.addEventListener('DOMContentLoaded', () => {
             tab.style.borderRadius = '2rem';
             tab.style.padding = '0.5rem 1.2rem';
 
-            // Obtener el texto de la pestaña seleccionada (ej: "más recientes", "mejores vendidos", etc.)
-            const filterText = tab.textContent.toLowerCase().trim();
+            const tabText = tab.textContent.toLowerCase().trim();
 
-            // Filtrar las tarjetas de productos
-            productCards.forEach(card => {
-                const cardFilter = (card.getAttribute('data-filter') || '').toLowerCase();
-                const cardCategory = (card.getAttribute('data-category') || '').toLowerCase();
-                const cardTitle = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
-
-                // Si la pestaña dice "todos" o el filtro coincide con la tarjeta, se muestra; de lo contrario, se oculta
-                if (filterText.includes('todo') || cardFilter.includes(filterText) || cardCategory.includes(filterText) || cardTitle.includes(filterText)) {
-                    card.style.display = 'block';
-                } else {
-                    // Si el usuario hace clic en una pestaña específica y no hay coincidencia exacta de filtro, 
-                    // puedes decidir si mostrar todas o filtrar por palabra clave. Por defecto, filtramos por coincidencia:
-                    if (cardFilter.includes(filterText.replace('más ', '').replace('mejores ', ''))) {
+            // Lógica de visualización dinámica según la pestaña presionada
+            productCards.forEach((card, index) => {
+                if (tabText.includes('reciente')) {
+                    // Si pinchan "Más Recientes", mostramos por ejemplo la mitad de las tarjetas o las simulamos
+                    if (index < 2) {
                         card.style.display = 'block';
                     } else {
-                        // Si deseas que por defecto muestre todo si no encuentra etiqueta específica:
-                        card.style.display = 'block'; // Cambiar a 'none' si prefieres ocultar los que no coincidan
+                        card.style.display = 'none';
                     }
+                } else if (tabText.includes('vendido')) {
+                    // Si pinchan "Mejores Vendidos", mostramos otras tarjetas diferentes
+                    if (index >= 2) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                } else {
+                    // Si es otra pestaña o "todos", mostramos todas las tarjetas
+                    card.style.display = 'block';
                 }
             });
         });
